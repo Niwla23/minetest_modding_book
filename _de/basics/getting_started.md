@@ -13,7 +13,7 @@ redirect_from:
 
 Es ist sehr wichtig, die Struktur von einer Mod zu verstehen, damit man eigene Mods erstellen kann.
 
-Inhaltsverzeichnis
+Inhaltsverzeichnis:
 
 * [Was sind Spiele und Mods?](#what-are-games-and-mods)
 * [Wo werden Mods gespeichert?](#where-are-mods-stored)
