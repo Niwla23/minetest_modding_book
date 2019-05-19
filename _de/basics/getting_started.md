@@ -1,215 +1,131 @@
 ---
-title: Getting Started
-layout: default
-root: ../..
+title: Erste Schritte
+layout: Standard
+root: ../.....
 idx: 1.1
-description: Learn how to make a mod folder, including init.lua, mod.conf and more.
+description: Erfahren Sie, wie Sie einen Mod-Ordner erstellen, einschließlich init.lua, mod.conf und mehr.
 redirect_from:
-- /en/chapters/folders.html
-- /en/basics/folders.html
+- /de/chapters/folders.html
+- /de/basics/folders.html
 ---
 
-## Introduction
+## Einführung
 
-Understanding the basic structure of a mod's folder is an essential skill when
-creating mods.
+Das Verständnis der Grundstruktur des Ordners eines Mods ist eine wesentliche Fähigkeit, wenn es darum geht, die folgenden Punkte zu berücksichtigen
+Erstellen von Mods.
 
-* [What are Games and Mods?](#what-are-games-and-mods)
-* [Where are mods stored?](#where-are-mods-stored)
+* [Was sind Spiele und Mods?](#what-are-games-and-mods)
+* [Wo werden Mods gespeichert?](#where-are-mods-stored)
 * [Mod Directory](#mod-directory)
-* [Dependencies](#dependencies)
-* [Mod Packs](#mod-packs)
-* [Example](#example)
+* [Abhängigkeiten](#dependencies)
+* [Mod-Pakete](#mod-packs)
+* [Beispiel](#example)
 
 
-## What are Games and Mods?
+## Was sind Spiele und Mods?
 
-The power of Minetest is the ability to easily develop games without the need
-to create your own voxel graphics, voxel algorithms, or fancy networking code.
+Die Stärke von Minetest ist die Fähigkeit, Spiele einfach und ohne die Notwendigkeit,
+ Ihre eigenen Voxel-Grafiken, Voxel-Algorithmen oder ausgefallenen Netzwerkcode zu erstellen.
 
-In Minetest, a game is a collection of modules which work together to provide the
-content and behaviour of a game.
-A module, commonly known as a mod, is a collection of scripts and resources.
-It's possible to make a game using only one mod, but this is rarely done because it
-reduces the ease by which parts of the game can be adjusted and replaced
-independently of others.
+In Minetest ist ein Spiel eine Sammlung von Mods, die zusammenwirken, um die folgenden Funktionen bereitzustellen
+Inhalt und Verhalten eines Spiels.
+Ein Modul, allgemein bekannt als Mod, ist eine Sammlung von Skripten und Ressourcen.
+Es ist möglich, ein Spiel mit nur einem Mod zu machen, aber das wird selten gemacht, weil es so ist.
+reduziert den Aufwand, mit dem Teile des Spiels angepasst und ausgetauscht werden können.
+unabhängig von anderen.
 
-It's also possible to distribute mods outside of a game, in which case they
-are also *mods* in the more traditional sense - modifications. These mods adjust
-or extend the features of a game.
+Es ist auch möglich, Mods außerhalb eines Spiels zu vertreiben, in diesem Fall sind sie auch außerhalb eines Spiels erhältlich.
+sind auch *Mods* im traditionellen Sinne - Modifikationen. Diese Mods passen sich an
+oder die Funktionen eines Spiels erweitern.
 
-Both the mods contained in a game and third-party mods use the same API.
+Sowohl die in einem Spiel enthaltenen Mods als auch die Mods von Drittanbietern verwenden die gleiche API.
 
-This book will cover the main parts of the Minetest API,
-and is applicable for both game developers and modders.
+Dieses Buch behandelt die wichtigsten Teile der Minetest API,
+und ist sowohl für Spieleentwickler als auch für Modder geeignet.
 
 
-## Where are mods stored?
+## Wo werden Mods gespeichert?
 
 <a name="mod-locations"></a>
 
-Each mod has its own directory where its Lua code, textures, models, and
-sounds are placed. Minetest checks in a number of different locations for
-mods. These locations are commonly called *mod load paths*.
+Jeder Mod hat sein eigenes Verzeichnis, in dem sich sein Lua-Code, seine Texturen, Modelle und seine
+Sounds werden platziert. Minetest prüft an verschiedenen Stellen auf folgende Punkte
+mods. Diese Orte werden allgemein als *modale Lastpfade* bezeichnet.
 
-For a given world/save game, three mod locations are checked.
-They are, in order:
+Für ein bestimmtes Welt-/Speicherspiel werden drei Mod-Standorte überprüft.
+Sie sind, in Ordnung:
 
-1. Game mods. These are the mods that form the game that the world is running.
-   Eg: `minetest/games/minetest_game/mods/`, `/usr/share/minetest/games/minetest/`
-2. Global mods, the location to which mods are nearly always installed to.
-   If in doubt, place them here.
-   Eg: `minetest/mods/`
-3. World mods, the location to store mods which are specific to a
-   particular world.
-   Eg: `minetest/worlds/world/worldmods/`
+1. Spielmodifikationen. Dies sind die Mods, die das Spiel bilden, das die Welt spielt.
+   Z.B.: `minetest/games/minetest_game/mods/`, `/usr/share/minetest/games/minetest/`
+2. Globale Mods, der Ort, an dem Mods fast immer installiert sind.
+   Im Zweifelsfall platzieren Sie sie hier.
+   Z.B.: `minetest/mods/`minetest/mods/`.
+3. World Mods, der Ort, an dem Mods gespeichert werden können, die spezifisch für einen
+   besondere Welt.
+   Z.B.: "Minetest/Welten/Welt/Weltmodalitäten/Weltmodalitäten/".
 
-Minetest will check the locations in the order given above. If it encounters a mod
-with a name the same as one found previously, the later mod will be loaded in place
-of the earlier mod.
-This means that you can override game mods by placing a mod with the same name
-in the global mod location.
+Minetest überprüft die Standorte in der oben angegebenen Reihenfolge. Wenn es auf einen Mod trifft.
+mit dem gleichen Namen wie zuvor gefunden, wird der spätere Mod an Ort und Stelle geladen.
+des früheren Mod.
+Das bedeutet, dass du Spielmods überschreiben kannst, indem du einen Mod mit dem gleichen Namen platzierst.
+in der globalen Mod-Position.
 
-The actual location of each mod load path depends on what operating system you're
-using, and how you installed Minetest.
+Der tatsächliche Standort der einzelnen Mod-Load-Pfade hängt davon ab, welches Betriebssystem Sie sind.
+mit und wie Sie Minetest installiert haben.
 
-* **Windows:**
-    * For portable builds, ie: from a .zip file, just go to the directory where
-      you extracted the zip and look for the `games`, `mods`, and `worlds`
-      directories.
-    * For installed builds, ie: from a setup.exe,
-      look in C:\\\\Minetest or C:\\\\Games\\Minetest.
-* **GNU/Linux:**
-    * For system-wide installs, look in `~/.minetest`.
-      Note that `~` means the user home directory, and that files and directories
-      starting with a dot (`.`) are hidden.
-    * For portable installs, look in the build directory.
-    * For Flatpak installs, look in `~/.var/app/net.minetest.Minetest/.minetest/mods/`.
-* **MacOS**
-    * Look in `~/Library/Application Support/minetest/`.
-      Note that `~` means the user home, ie: `/Users/USERNAME/`.
+* * **Windows:**Windows:**
+    * Für portable Builds, d.h.: von einer.zip-Datei, gehen Sie einfach in das Verzeichnis, in dem sich die Datei
+      Du hast die Zip-Datei extrahiert und nach den `Games`, `mods` und `worlds` gesucht.
+      Verzeichnisse.
+    * Für installierte Builds, d.h. von einer setup.exe,
+      Schau in C:\\\\\\\Minetest oder C:\\\\\\Games\\\Minetest.
+* **GNU/Linux:***
+    * Für systemweite Installationen siehe `~/.minetest`.
+      Beachten Sie, dass `~` das Heimatverzeichnis des Benutzers bedeutet und dass Dateien und Verzeichnisse
+      die mit einem Punkt (`.`) beginnen, sind ausgeblendet.
+    * Für portable Installationen suchen Sie im Build-Verzeichnis.
+    * Für Flatpak-Installationen siehe `~/.var/app/net.minetest.Minetest/.minetest/mods/`.
+* * **MacOS****
+    * Schauen Sie unter `~/Library/Application Support/minetest/`.
+      Beachten Sie, dass `~` den Benutzer Home bedeutet, d.h.: `Users/USERNAME/`.
 
-## Mod Directory
+## Mod-Verzeichnis
 
-![Find the mod's directory]({{ page.root }}/static/folder_modfolder.jpg)
+![Finde das Verzeichnis des Mods]({{ page.root }}}/static/folder_modfolder.jpg)
 
-A *mod name* is used to refer to a mod. Each mod should have a unique name.
-Mod names can include letters, numbers, and underscores. A good name should
-describe what the mod does, and the directory which contains the components of a mod
-must have the same name as the mod name.
-To find out if a mod name is available, try searching for it on
+Ein *Mod-Name* wird verwendet, um auf einen Mod zu verweisen. Jeder Mod sollte einen eindeutigen Namen haben.
+Mod-Namen können Buchstaben, Zahlen und Unterstriche beinhalten. Ein guter Name sollte
+beschreibe, was die Mod macht, und das Verzeichnis, das die Komponenten einer Mod enthält.
+muss den gleichen Namen wie der Mod-Name haben.
+Um herauszufinden, ob ein Mod-Name verfügbar ist, versuche ihn zu finden unter
 [content.minetest.net](https://content.minetest.net).
 
     mymod
-    ├── init.lua (required) - Runs when the game loads.
-    ├── mod.conf (recommended) - Contains description and dependencies.
+    ├── init.lua (erforderlich) - Läuft, wenn das Spiel geladen wird.
+    ├── mod.conf (empfohlen) - Enthält Beschreibung und Abhängigkeiten.
     ├── textures (optional)
-    │   └── ... any textures or images
-    ├── sounds (optional)
-    │   └── ... any sounds
-    └── ... any other files or directories
+    │ └─── .... alle Texturen oder Bilder.
+    ├─── sounds (optional)
+    │ └─── .... alle Sounds
+    └── .... alle anderen Dateien oder Verzeichnisse
 
-Only the init.lua file is required in a mod for it to run on game load;
-however, mod.conf is recommended and other components may be needed
-depending on the mod's functionality.
+Nur die init.lua-Datei wird in einem Mod benötigt, damit sie beim Laden des Spiels läuft;
+jedoch wird mod.conf empfohlen und es können weitere Komponenten erforderlich sein.
+abhängig von der Funktionalität des Mods.
 
 
-## Dependencies
+## Abhängigkeiten
 
-A dependency occurs when a mod requires another mod to be loaded before itself.
-One mod may require another mod's code, items, or other resources to be available
-for it to use.
+Eine Abhängigkeit tritt auf, wenn ein Mod erfordert, dass ein anderer Mod vor sich selbst geladen wird.
+Ein Mod kann verlangen, dass der Code, die Gegenstände oder andere Ressourcen eines anderen Mods verfügbar sind.
+für die Verwendung.
 
-There are two types of dependencies: hard and optional dependencies.
-Both require the mod to be loaded first. If the mod being depended on isn't
-available, a hard dependency will cause the mod to fail to load, while an optional
-dependency might lead to fewer features being enabled.
+Es gibt zwei Arten von Abhängigkeiten: harte und optionale Abhängigkeiten.
+Beide erfordern, dass zuerst der Mod geladen wird. Wenn der Mod, von dem die abhängige Mod nicht ist.
+verfügbar, wird eine harte Abhängigkeit dazu führen, dass der Mod nicht geladen werden kann, während eine optionale
+Abhängigkeit kann dazu führen, dass weniger Funktionen aktiviert werden.
 
-An optional dependency is useful if you want to optionally support another mod; it can
-enable extra content if the user wishes to use both the mods at the same time.
+Eine optionale Abhängigkeit ist nützlich, wenn du optional einen anderen Mod unterstützen möchtest; sie kann
+de
 
-Dependencies should be listed in mod.conf.
-
-### mod.conf
-
-This file is used for mod metadata including the mod's name, description, and other
-information. For example:
-
-    name = mymod
-    description = Adds foo, bar, and bo.
-    depends = modone, modtwo
-    optional_depends = modthree
-
-### depends.txt
-
-For compatibility with 0.4.x versions of Minetest, instead of only specifying
-dependencies in mod.conf, you need to provide a depends.txt file in which
-you list all dependencies:
-
-    modone
-    modtwo
-    modthree?
-
-Each mod name is on its own line, and mod names with a question mark
-following them are optional dependencies.
-If an optional dependency is installed, it is loaded before the mod;
-however, if the dependency is not installed, the mod still loads.
-This is in contrast to normal dependencies which will cause the current
-mod not to work if the dependency is not installed.
-
-## Mod Packs
-
-Mods can be grouped into mod packs which allow multiple mods to be packaged
-and moved together. They are useful if you want to supply multiple mods to
-a player, but don't want to make them download each one individually.
-
-    modpack1
-    ├── modpack.lua (required) - signals that this is a mod pack
-    ├── mod1
-    │   └── ... mod files
-    └── mymod (optional)
-        └── ... mod files
-
-Please note that a modpack is not a *game*.
-Games have their own organisational structure which will be explained in the
-Games chapter.
-
-## Example
-
-Here is an example which puts all of this together:
-
-### Mod Folder
-    mymod
-    ├── textures
-    │   └── mymod_node.png files
-    ├── depends.txt
-    ├── init.lua
-    └── mod.conf
-
-### depends.txt
-    default
-
-### init.lua
-```lua
-print("This file will be run at load time!")
-
-minetest.register_node("mymod:node", {
-    description = "This is a node",
-    tiles = {"mymod_node.png"},
-    groups = {cracky = 1}
-})
-```
-
-### mod.conf
-    name = mymod
-    descriptions = Adds a node
-    depends = default
-
-This mod has the name "mymod". It has three text files: init.lua, mod.conf,
-and depends.txt.\\
-The script prints a message and then registers a node –
-which will be explained in the next chapter.\\
-There's a single dependency, the
-[default mod](https://content.minetest.net/metapackages/default/), which is
-usually found in Minetest Game.\\
-There is also a texture in textures/ for the node.
+Übersetzt mit www.DeepL.com/Translator
