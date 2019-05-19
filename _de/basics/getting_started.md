@@ -12,7 +12,8 @@ redirect_from:
 ## Einführung
 
 Es ist sehr wichtig, die Struktur von einer Mod zu verstehen, damit man eigene Mods erstellen kann.
-Erstellen von Mods.
+
+Inhaltsverzeichnis
 
 * [Was sind Spiele und Mods?](#what-are-games-and-mods)
 * [Wo werden Mods gespeichert?](#where-are-mods-stored)
@@ -25,12 +26,11 @@ Erstellen von Mods.
 ## Was sind Spiele und Mods?
 
 Die Stärke von Minetest ist die Fähigkeit, Spiele einfach und ohne die Notwendigkeit,
- Ihre eigenen Voxel-Grafiken, Voxel-Algorithmen oder ausgefallenen Netzwerkcode zu erstellen.
+ Ihre eigenen Voxel-Grafiken, Voxel-Algorithmen oder komplizierten Netzwerkcode zu erstellen.
 
-In Minetest ist ein Spiel eine Sammlung von Mods, die zusammenwirken, um die folgenden Funktionen bereitzustellen
-Inhalt und Verhalten eines Spiels.
+In Minetest ist ein Spiel eine Sammlung von Mods, die zusammenwirken, um die um den Inhalt und das Verhalten eines Spiels zu steuern.
 Ein Modul, allgemein bekannt als Mod, ist eine Sammlung von Skripten und Ressourcen.
-Es ist möglich, ein Spiel mit nur einem Mod zu machen, aber das wird selten gemacht, weil es so ist.
+Es ist möglich, ein Spiel mit nur einer Mod zu machen, aber das wird selten getan, weil es sonst schwerer ist, Teile des Spiels unabhängig von anderen anzupassen und zu ersetzen.
 reduziert den Aufwand, mit dem Teile des Spiels angepasst und ausgetauscht werden können.
 unabhängig von anderen.
 
