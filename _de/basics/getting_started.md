@@ -31,12 +31,10 @@ Die Stärke von Minetest ist die Fähigkeit, Spiele einfach und ohne die Notwend
 In Minetest ist ein Spiel eine Sammlung von Mods, die zusammenwirken, um die um den Inhalt und das Verhalten eines Spiels zu steuern.
 Ein Modul, allgemein bekannt als Mod, ist eine Sammlung von Skripten und Ressourcen.
 Es ist möglich, ein Spiel mit nur einer Mod zu machen, aber das wird selten getan, weil es sonst schwerer ist, Teile des Spiels unabhängig von anderen anzupassen und zu ersetzen.
-reduziert den Aufwand, mit dem Teile des Spiels angepasst und ausgetauscht werden können.
-unabhängig von anderen.
 
-Es ist auch möglich, Mods außerhalb eines Spiels zu vertreiben, in diesem Fall sind sie auch außerhalb eines Spiels erhältlich.
-sind auch *Mods* im traditionellen Sinne - Modifikationen. Diese Mods passen sich an
-oder die Funktionen eines Spiels erweitern.
+Es ist auch möglich, Mods außerhalb eines Spiels zu benutzen, in diesem Fall sind sie auch außerhalb eines Spiels aktivierbar.
+In diesem Falle sind *Mods* im traditionellen Sinne - Modifikationen. Diese Mods
+ erweitern Funktionen eines Spiels.
 
 Sowohl die in einem Spiel enthaltenen Mods als auch die Mods von Drittanbietern verwenden die gleiche API.
 
