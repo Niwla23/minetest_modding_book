@@ -11,7 +11,7 @@ redirect_from:
 
 ## Einführung
 
-Das Verständnis der Grundstruktur des Ordners eines Mods ist eine wesentliche Fähigkeit, wenn es darum geht, die folgenden Punkte zu berücksichtigen
+Das Verständnis der Grundstruktur des Ordners einer Mods ist eine wesentliche Fähigkeit, wenn es darum geht, die folgenden Punkte zu berücksichtigen
 Erstellen von Mods.
 
 * [Was sind Spiele und Mods?](#what-are-games-and-mods)
