@@ -11,7 +11,7 @@ redirect_from:
 
 ## Einführung
 
-Es ist sehr wichtig, die Struktur von einer Mod zu verstehen, damit man eigene Mods erstellen kann.
+Es ist sehr wichtig, die Struktur von einem Mod zu verstehen, damit man eigene Mods erstellen kann.
 
 Inhaltsverzeichnis:
 
