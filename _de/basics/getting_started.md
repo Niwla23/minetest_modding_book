@@ -18,7 +18,7 @@ Inhaltsverzeichnis:
 * [Was sind Spiele und Mods?](#what-are-games-and-mods)
 * [Wo werden Mods gespeichert?](#where-are-mods-stored)
 * [Mod Directory](#mod-directory)
-* [Abhängigkeiten](#dependencies)
+* [Abhängigkeiten](#Abhängigkeiten)
 * [Mod-Pakete](#mod-packs)
 * [Beispiel](#example)
 
